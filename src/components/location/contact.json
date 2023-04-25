@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_location_contact",
+  "info": {
+    "displayName": "Contact",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "fullName": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": false
+    },
+    "number": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

@@ -1,0 +1,6 @@
+.vscode
+build
+dist
+.cache
+
+node_modules

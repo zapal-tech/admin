@@ -1,0 +1,72 @@
+version: '3'
+services:
+  zapalAdmin:
+    container_name: zapalAdmin
+    build: .
+    image: zapal:latest
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_CLIENT: ${DATABASE_CLIENT}
+      DATABASE_HOST: zapalDB
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PORT: ${DATABASE_PORT}
+      JWT_SECRET: ${JWT_SECRET}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      NODE_ENV: ${NODE_ENV}
+    volumes:
+      - ./config:/opt/app/config
+      - ./src:/opt/app/src
+      - ./package.json:/opt/package.json
+      - ./package-lock.json:/opt/package-lock.json
+
+      - ./.env:/opt/app/.env
+      - ./public/uploads:/opt/app/public/uploads
+    ports:
+      - '1337:1337'
+    networks:
+      - zapal
+    depends_on:
+      - zapalDB
+
+  zapalDB:
+    container_name: zapalDB
+    platform: linux/amd64 # For platform error on Apple M1 chips
+    restart: unless-stopped
+    env_file: .env
+    image: postgres:15.2-alpine
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
+    volumes:
+      - zapal-data:/var/lib/postgresql/data/ # Using a volume
+      # - ./data:/var/lib/postgresql/data/ # If you want to use a bind folder
+
+    ports:
+      - '5432:5432'
+    networks:
+      - zapal_network
+
+  zapalAdminer:
+    container_name: zapalAdminer
+    image: adminer
+    restart: unless-stopped
+    ports:
+      - '9090:8080'
+    environment:
+      - ADMINER_DEFAULT_SERVER=zapalDB
+    networks:
+      - zapal_network
+    depends_on:
+      - zapalDB
+
+volumes:
+  zapal-data:
+
+networks:
+  zapal_network:
+    name: Zapal Admin Network
+    driver: bridge
