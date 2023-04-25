@@ -27,7 +27,7 @@ services:
     ports:
       - '1337:1337'
     networks:
-      - zapal
+      - zapal_network
     depends_on:
       - zapalDB
 
