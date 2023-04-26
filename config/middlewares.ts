@@ -1,6 +1,19 @@
 export default [
   'strapi::errors',
-  'strapi::security',
+  {
+    name: 'strapi::security',
+    config: {
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          'connect-src': ["'self'", 'https:'],
+          'img-src': ["'self'", 'data:', 'blob:', 'storage.googleapis.com'],
+          'media-src': ["'self'", 'data:', 'blob:', 'storage.googleapis.com'],
+          upgradeInsecureRequests: null,
+        },
+      },
+    },
+  },
   'strapi::cors',
   { name: 'strapi::poweredBy', config: { poweredBy: 'Zapal <zapal.tech>' } },
   'strapi::logger',

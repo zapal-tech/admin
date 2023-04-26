@@ -22,6 +22,13 @@ export default ({ env }) => ({
   },
   upload: {
     config: {
+      provider: 'strapi-provider-firebase-storage',
+      providerOptions: {
+        serviceAccount: JSON.parse(env('STORAGE_SERVICE_ACCOUNT')),
+        bucket: env('STORAGE_BUCKET', 'zapal-media'),
+        sortInStorage: true,
+        debug: false,
+      },
       breakpoints: {
         '700': 700,
         '750': 750,

@@ -11,7 +11,9 @@
     "patch-package": "^6.5.1",
     "pg": "^8.10.0",
     "pg-connection-string": "^2.5.0",
+    "strapi-plugin-populate-deep": "^2.0.0",
     "strapi-plugin-timezone-select": "^1.0.0",
+    "strapi-provider-firebase-storage": "^1.0.3",
     "strapi-tiptap-editor": "^0.9.12"
   },
   "name": "admin",

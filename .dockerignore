@@ -5,3 +5,7 @@ build/
 node_modules/
 .env
 data/
+.env*
+.flaskenv*
+!.env.project
+!.env.vault
