@@ -38,16 +38,6 @@
         }
       }
     },
-    "visible": {
-      "type": "boolean",
-      "default": true,
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "slug": {
       "type": "uid",
       "targetField": "name",

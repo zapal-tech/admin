@@ -7,11 +7,11 @@
   "options": {},
   "attributes": {
     "longitude": {
-      "type": "integer",
+      "type": "float",
       "required": true
     },
     "latitude": {
-      "type": "integer",
+      "type": "float",
       "required": true
     }
   }

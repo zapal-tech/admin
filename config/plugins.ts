@@ -41,4 +41,5 @@ export default ({ env }) => ({
     },
   },
   seo: true,
+  'content-versioning': true,
 });

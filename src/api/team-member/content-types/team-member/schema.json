@@ -13,6 +13,9 @@
   "pluginOptions": {
     "i18n": {
       "localized": true
+    },
+    "versions": {
+      "versioned": true
     }
   },
   "attributes": {
@@ -32,7 +35,6 @@
         }
       },
       "type": "string",
-      "required": true,
       "unique": false
     },
     "bio": {
@@ -96,16 +98,15 @@
       "min": 1,
       "private": true
     },
-    "visible": {
+    "links": {
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
-      "type": "boolean",
-      "default": true,
-      "required": true,
-      "private": true
+      "type": "dynamiczone",
+      "components": ["team-member.link"],
+      "required": false
     }
   }
 }

@@ -10,7 +10,11 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "versions": {
+      "versioned": true
+    }
+  },
   "attributes": {
     "name": {
       "type": "string",
@@ -35,14 +39,15 @@
       "min": 1,
       "private": true
     },
-    "visible": {
-      "type": "boolean",
-      "default": true,
-      "required": true
-    },
     "slug": {
       "type": "uid",
       "targetField": "name",
+      "required": true
+    },
+    "viewType": {
+      "type": "enumeration",
+      "enum": ["default", "big"],
+      "default": "default",
       "required": true
     }
   }

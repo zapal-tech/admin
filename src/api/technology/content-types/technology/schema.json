@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "services",
+  "collectionName": "technologies",
   "info": {
-    "singularName": "service",
-    "pluralName": "services",
-    "displayName": "Services",
+    "singularName": "technology",
+    "pluralName": "technologies",
+    "displayName": "Technology",
     "description": ""
   },
   "options": {
@@ -19,30 +19,13 @@
     }
   },
   "attributes": {
-    "name": {
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "type": "string",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "order": {
-      "type": "integer",
-      "required": true,
-      "unique": false,
-      "min": 1,
-      "private": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "slug": {
-      "type": "uid",
-      "targetField": "name",
       "required": true
     },
     "description": {
@@ -54,16 +37,26 @@
       "type": "text",
       "required": true
     },
+    "slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
     "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"],
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
-      },
-      "type": "enumeration",
-      "enum": ["hashtag"],
-      "required": true,
-      "default": "hashtag"
+      }
     }
   }
 }
