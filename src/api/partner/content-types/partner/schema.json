@@ -36,8 +36,7 @@
       "type": "integer",
       "required": true,
       "unique": false,
-      "min": 1,
-      "private": true
+      "min": 1
     },
     "slug": {
       "type": "uid",

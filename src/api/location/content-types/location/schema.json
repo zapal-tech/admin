@@ -31,7 +31,6 @@
       "required": true,
       "unique": false,
       "min": 1,
-      "private": true,
       "pluginOptions": {
         "i18n": {
           "localized": true

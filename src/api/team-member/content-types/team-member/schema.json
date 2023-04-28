@@ -95,8 +95,7 @@
       "required": true,
       "type": "integer",
       "unique": false,
-      "min": 1,
-      "private": true
+      "min": 1
     },
     "links": {
       "pluginOptions": {
