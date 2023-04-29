@@ -17,7 +17,9 @@
       "pluginOptions": {}
     },
     "slug": {
-      "type": "uid"
+      "type": "string",
+      "targetField": "name",
+      "required": true
     },
     "description": {
       "type": "text",

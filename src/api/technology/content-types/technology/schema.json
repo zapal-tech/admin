@@ -38,12 +38,7 @@
       "required": true
     },
     "slug": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "uid",
+      "type": "string",
       "targetField": "title",
       "required": true
     },

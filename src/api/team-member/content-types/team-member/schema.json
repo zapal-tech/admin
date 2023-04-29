@@ -48,12 +48,7 @@
       "maxLength": 800
     },
     "slug": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "uid",
+      "type": "string",
       "targetField": "firstName",
       "required": true
     },
