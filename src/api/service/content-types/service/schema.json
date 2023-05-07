@@ -49,15 +49,15 @@
       "required": true
     },
     "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"],
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
-      },
-      "type": "enumeration",
-      "enum": ["hashtag"],
-      "required": true,
-      "default": "hashtag"
+      }
     }
   }
 }
