@@ -1,3 +1,3 @@
 import { factories } from '@strapi/strapi';
 
-export default factories.createCoreService('api::module.projects');
+export default factories.createCoreService('api::module.projects-page');
