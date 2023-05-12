@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "module_terms_of_use_pages",
+  "info": {
+    "singularName": "terms-of-use-page",
+    "pluralName": "terms-of-use-pages",
+    "displayName": "Terms of Use page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    },
+    "versions": {
+      "versioned": true
+    }
+  },
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.seo"
+    }
+  }
+}

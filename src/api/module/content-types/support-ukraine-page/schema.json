@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "module_support_ukraine_pages",
+  "info": {
+    "singularName": "support-ukraine-page",
+    "pluralName": "support-ukraine-pages",
+    "displayName": "Support Ukraine page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    },
+    "versions": {
+      "versioned": true
+    }
+  },
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.seo"
+    }
+  }
+}

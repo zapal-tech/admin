@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "module_cookies_policy_pages",
+  "info": {
+    "singularName": "cookies-policy-page",
+    "pluralName": "cookies-policy-pages",
+    "displayName": "Cookies policy page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    },
+    "versions": {
+      "versioned": true
+    }
+  },
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.seo"
+    }
+  }
+}
