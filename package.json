@@ -1,8 +1,8 @@
 {
   "dependencies": {
     "@notum-cz/strapi-plugin-content-versioning": "^0.4.7",
-    "@strapi/plugin-i18n": "4.10.2",
-    "@strapi/plugin-seo": "^1.8.0",
+    "@strapi/plugin-i18n": "4.11.3",
+    "@strapi/plugin-seo": "^1.9.2",
     "@strapi/plugin-users-permissions": "4.10.2",
     "@strapi/provider-email-nodemailer": "^4.10.2",
     "@strapi/strapi": "4.10.2",
@@ -11,7 +11,7 @@
     "mime-types": "^2.1.35",
     "patch-package": "^7.0.0",
     "pg": "^8.10.0",
-    "pg-connection-string": "^2.5.0",
+    "pg-connection-string": "^2.6.1",
     "strapi-plugin-populate-deep": "^2.0.0",
     "strapi-plugin-timezone-select": "^1.0.0",
     "strapi-provider-firebase-storage": "^1.0.3",
