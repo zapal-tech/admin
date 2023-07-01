@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@notum-cz/strapi-plugin-content-versioning": "^0.4.7",
-    "@strapi/plugin-i18n": "4.11.3",
+    "@strapi/plugin-i18n": "4.10.2",
     "@strapi/plugin-seo": "^1.9.2",
     "@strapi/plugin-users-permissions": "4.10.2",
     "@strapi/provider-email-nodemailer": "^4.10.2",
