@@ -19,6 +19,15 @@
     }
   },
   "attributes": {
+    "translation": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "json",
+      "required": true
+    },
     "seo": {
       "type": "component",
       "repeatable": false,
