@@ -19,7 +19,11 @@ export default factories.createCoreService('api::contact.contact', ({ strapi }) 
 
     const notificationText = `Hi, Zapal!\n\n${firstName} ${lastName} from ${company} sent you a message:\n${message}\n\nYou can reply to ${email}`;
 
-    strapi.service('api::notification.notification').sendTelegramNotification(notificationText);
+    try {
+      await strapi.service('api::notification.notification').sendTelegramNotification(notificationText);
+    } catch (error) {
+      console.log('Error calling notification service (telegram), but contact was created.');
+    }
 
     return result;
   },
