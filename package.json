@@ -7,6 +7,7 @@
     "@strapi/provider-email-nodemailer": "^4.11.3",
     "@strapi/strapi": "4.11.3",
     "fs-extra": "^11.1.1",
+    "grammy": "^1.17.2",
     "husky": "^8.0.3",
     "mime-types": "^2.1.35",
     "pg": "^8.11.1",
