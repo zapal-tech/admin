@@ -82,13 +82,8 @@
       }
     },
     "order": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "required": true,
       "type": "integer",
+      "required": true,
       "unique": false,
       "min": 1
     },

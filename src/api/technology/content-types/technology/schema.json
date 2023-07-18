@@ -32,12 +32,7 @@
       "type": "integer",
       "required": true,
       "unique": false,
-      "min": 1,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "min": 1
     },
     "slug": {
       "type": "string",
