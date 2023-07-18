@@ -1,5 +1,5 @@
 import { factories } from '@strapi/strapi';
-import { Bot } from 'grammy';
+import axios from 'axios';
 
 type Contact = {
   id: number;
@@ -19,19 +19,18 @@ export default factories.createCoreService('api::contact.contact', () => ({
     try {
       const { firstName, lastName, email, company, message } = result;
 
-      const notificationText = `Hi, Zapal!\n\n${firstName} ${lastName} from ${company} sent you a message:\n${message}\n\nYou can reply to ${email}`;
+      const text =
+        `Hi, Zapal!\n\n${firstName} ${lastName} from ${company} sent you a message:\n${message}\n\nYou can reply to ${email}`.substring(
+          0,
+          4096,
+        );
 
-      const bot = new Bot(process.env.TELEGRAM_BOT_TOKEN);
-
-      await bot.start();
-
-      await bot.api.sendMessage(process.env.TELEGRAM_CHAT_ID, notificationText);
-
-      console.log('Telegram notification sent!');
-
-      await bot.stop();
+      await axios.post(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        chat_id: process.env.TELEGRAM_CHAT_ID,
+        text,
+      });
     } catch (error) {
-      console.log('Error calling notification service (telegram), but contact was created.');
+      console.log('Error sending Telegram notification, but contact was created.');
       console.error(error);
     }
 
