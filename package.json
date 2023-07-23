@@ -1,11 +1,11 @@
 {
   "dependencies": {
-    "@notum-cz/strapi-plugin-content-versioning": "^0.4.7",
-    "@strapi/plugin-i18n": "4.11.3",
+    "@notum-cz/strapi-plugin-content-versioning": "^0.4.9",
+    "@strapi/plugin-i18n": "4.11.7",
     "@strapi/plugin-seo": "^1.9.2",
-    "@strapi/plugin-users-permissions": "4.11.3",
-    "@strapi/provider-email-nodemailer": "^4.11.3",
-    "@strapi/strapi": "4.11.3",
+    "@strapi/plugin-users-permissions": "4.11.7",
+    "@strapi/provider-email-nodemailer": "^4.11.7",
+    "@strapi/strapi": "4.11.7",
     "axios": "^1.4.0",
     "fs-extra": "^11.1.1",
     "husky": "^8.0.3",
