@@ -6,7 +6,16 @@ export default factories.createCoreService('api::article.article', ({ strapi }) 
 
     const entity = await strapi.db.query('api::article.article').findOne({
       where: isId ? { $or: [{ slug }, { id: slug }] } : { slug },
-      populate: ['cover', 'author', 'author.avatar', 'tag', 'content', 'seo'],
+      populate: [
+        'cover',
+        'author',
+        'author.avatar',
+        'tags',
+        'content',
+        'content[shared.media]',
+        'content[shared.slider]',
+        'seo',
+      ],
     });
 
     return entity;

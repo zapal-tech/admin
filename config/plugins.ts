@@ -25,7 +25,7 @@ export default ({ env }) => ({
       provider: 'strapi-provider-firebase-storage',
       providerOptions: {
         serviceAccount: JSON.parse(env('STORAGE_SERVICE_ACCOUNT')),
-        bucket: env('STORAGE_BUCKET', 'zapal-media'),
+        bucket: env('STORAGE_BUCKET', 'media-bucket'),
         sortInStorage: true,
         debug: false,
       },
