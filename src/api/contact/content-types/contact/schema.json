@@ -18,7 +18,7 @@
     },
     "lastName": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "email": {
       "type": "email",
@@ -31,6 +31,16 @@
     "message": {
       "type": "text",
       "required": true
+    },
+    "comeFromLanguage": {
+      "type": "enumeration",
+      "enum": ["unknown", "en", "uk"],
+      "default": "unknown",
+      "required": true
+    },
+    "comeFromPage": {
+      "type": "string",
+      "required": false
     }
   }
 }
