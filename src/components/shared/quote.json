@@ -1,16 +1,16 @@
 {
   "collectionName": "components_shared_quotes",
   "info": {
-    "displayName": "Quote",
+    "displayName": "Quote with author",
     "icon": "indent"
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "body": {
+    "quote": {
       "type": "text"
+    },
+    "author": {
+      "type": "string"
     }
   }
 }

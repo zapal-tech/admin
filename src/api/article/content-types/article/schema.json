@@ -27,7 +27,7 @@
         }
       },
       "required": true,
-      "maxLength": 60
+      "maxLength": 90
     },
     "slug": {
       "type": "string",
@@ -36,7 +36,7 @@
     },
     "description": {
       "type": "text",
-      "maxLength": 160,
+      "maxLength": 250,
       "pluginOptions": {
         "i18n": {
           "localized": true
