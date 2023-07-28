@@ -1,0 +1,447 @@
+globalThis.CKEditorConfig = {
+  /* By default configs and theme
+    objects will be spread with
+    default configs and theme
+    these two properties specified below
+    allow you to redefine
+    default objects completely: */
+
+  // configsOverwrite:true,
+  //themeOverwrite:true,
+
+  /* Here you can redefine default configs
+    or add completely new ones.
+    Each config includes: 
+    "styles", "field" and "editorConfig" properties.
+    Property "field" is required. */
+
+  configs: {
+    // toolbar: {
+    // styles:``,
+    // field:{},
+    // editorConfig:{}
+    // },
+    custom: {
+      styles: `
+            //     --ck-focus-ring: 1px solid #F84C0B;
+
+            //     .ck.ck-content.ck-editor__editable {
+            //       &.ck-focused:not(.ck-editor__nested-editable) {
+            //         border: var(--ck-focus-ring) !important;
+            //       }
+            //     }
+            //     .ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline.ck-blurred{
+            //       min-height: 400px;
+            //       max-height: 400px;
+            //     }
+            //     .ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline.ck-focused{
+            //       min-height: 400px;
+            //       max-height: 1700px;
+            //     }
+            `,
+
+      /* Custom field option */
+      field: {
+        key: 'custom',
+        value: 'custom',
+        metadatas: {
+          intlLabel: {
+            id: 'ckeditor5.preset.custom.label',
+            defaultMessage: 'Custom version',
+          },
+        },
+      },
+
+      /* CKEditor configuration */
+      editorConfig: {
+        /* All available built-in plugins
+        you can find in admin/src/components/Input/CKEditor/configs/base.js */
+        /*
+          Alignment: CKEditor5.alignment.Alignment,
+          Autoformat: CKEditor5.autoformat.Autoformat,
+          AutoImage: CKEditor5.image.AutoImage,
+          AutoLink: CKEditor5.link.AutoLink,
+          Autosave: CKEditor5.autosave.Autosave,
+          BalloonToolbar: CKEditor5.ui.BalloonToolbar,
+          BlockQuote: CKEditor5.blockQuote.BlockQuote,
+          BlockToolbar: CKEditor5.ui.BlockToolbar,
+          Bold: CKEditor5.basicStyles.Bold,
+          Code: CKEditor5.basicStyles.Code,
+          CodeBlock: CKEditor5.codeBlock.CodeBlock,
+          DataFilter: CKEditor5.htmlSupport.DataFilter,
+          DataSchema: CKEditor5.htmlSupport.DataSchema,
+          DocumentList: CKEditor5.list.DocumentList,
+          DocumentListProperties: CKEditor5.list.DocumentListProperties,
+          Essentials: CKEditor5.essentials.Essentials,
+          FindAndReplace: CKEditor5.findAndReplace.FindAndReplace,
+          FontBackgroundColor: CKEditor5.fontWithPicker.FontBackgroundColor,
+          FontColor: CKEditor5.fontWithPicker.FontColor,
+          FontFamily: CKEditor5.fontWithPicker.FontFamily,
+          FontSize: CKEditor5.fontWithPicker.FontSize,
+          GeneralHtmlSupport: CKEditor5.htmlSupport.GeneralHtmlSupport,
+          Heading: CKEditor5.heading.Heading,
+          // HeadingButtonsUI: CKEditor5.heading.HeadingButtonsUI,
+          Highlight: CKEditor5.highlight.Highlight,
+          HorizontalLine: CKEditor5.horizontalLine.HorizontalLine,
+          HtmlComment: CKEditor5.htmlSupport.HtmlComment,
+          HtmlEmbed: CKEditor5.htmlEmbed.HtmlEmbed,
+          Image: CKEditor5.image.Image,
+          ImageCaption: CKEditor5.image.ImageCaption,
+          ImageInsert: CKEditor5.image.ImageInsert,
+          ImageResize: CKEditor5.image.ImageResize,
+          ImageStyle: CKEditor5.image.ImageStyle,
+          ImageToolbar: CKEditor5.image.ImageToolbar,
+          ImageUpload: CKEditor5.image.ImageUpload,
+          Indent: CKEditor5.indent.Indent,
+          IndentBlock: CKEditor5.indent.IndentBlock,
+          Italic: CKEditor5.basicStyles.Italic,
+          Link: CKEditor5.link.Link,
+          LinkImage: CKEditor5.link.LinkImage,
+          List: CKEditor5.list.List,
+          ListProperties: CKEditor5.list.ListProperties,
+          MediaEmbed: CKEditor5.mediaEmbed.MediaEmbed,
+          MediaEmbedToolbar: CKEditor5.mediaEmbed.MediaEmbedToolbar,
+          Mention: CKEditor5.mention.Mention,
+          PageBreak: CKEditor5.pageBreak.PageBreak,
+          Paragraph: CKEditor5.paragraph.Paragraph,
+          // ParagraphButtonUI: CKEditor5.paragraph.ParagraphButtonUI,
+          PasteFromOffice: CKEditor5.pasteFromOffice.PasteFromOffice,
+          RemoveFormat: CKEditor5.removeFormat.RemoveFormat,
+          SourceEditing: CKEditor5.sourceEditing.SourceEditing,
+          SpecialCharacters: CKEditor5.specialCharacters.SpecialCharacters,
+          SpecialCharactersArrows: CKEditor5.specialCharacters.SpecialCharactersArrows,
+          SpecialCharactersCurrency: CKEditor5.specialCharacters.SpecialCharactersCurrency,
+          // SpecialCharactersEssentials: CKEditor5.specialCharacters.SpecialCharactersEssentials,
+          SpecialCharactersLatin: CKEditor5.specialCharacters.SpecialCharactersLatin,
+          SpecialCharactersMathematical: CKEditor5.specialCharacters.SpecialCharactersMathematical,
+          SpecialCharactersText: CKEditor5.specialCharacters.SpecialCharactersText,
+          StrapiMediaLib: CKEditor5.strapiPlugins.StrapiMediaLib,
+          StrapiUploadAdapter: CKEditor5.strapiPlugins.StrapiUploadAdapter,
+          Strikethrough: CKEditor5.basicStyles.Strikethrough,
+          Style: CKEditor5.style.Style,
+          Subscript: CKEditor5.basicStyles.Subscript,
+          Superscript: CKEditor5.basicStyles.Superscript,
+          Table: CKEditor5.table.Table,
+          TableCaption: CKEditor5.table.TableCaption,
+          TableCellProperties: CKEditor5.table.TableCellProperties,
+          TableColumnResize: CKEditor5.table.TableColumnResize,
+          TableProperties: CKEditor5.table.TableProperties,
+          TableToolbar: CKEditor5.table.TableToolbar,
+          TextPartLanguage: CKEditor5.language.TextPartLanguage,
+          TodoList: CKEditor5.list.TodoList,
+          Underline: CKEditor5.basicStyles.Underline,
+          WordCount: CKEditor5.wordCount.WordCount
+          */
+        plugins: [
+          CKEditor5.alignment.Alignment,
+          CKEditor5.autoformat.Autoformat,
+          CKEditor5.link.AutoLink,
+          CKEditor5.autosave.Autosave,
+          CKEditor5.ui.BalloonToolbar,
+          CKEditor5.blockQuote.BlockQuote,
+          CKEditor5.basicStyles.Bold,
+          CKEditor5.basicStyles.Code,
+          CKEditor5.codeBlock.CodeBlock,
+          CKEditor5.essentials.Essentials,
+          CKEditor5.findAndReplace.FindAndReplace,
+          CKEditor5.fontWithPicker.FontBackgroundColor,
+          CKEditor5.fontWithPicker.FontColor,
+          CKEditor5.heading.Heading,
+          CKEditor5.highlight.Highlight,
+          CKEditor5.horizontalLine.HorizontalLine,
+          CKEditor5.image.Image,
+          CKEditor5.image.ImageCaption,
+          CKEditor5.image.ImageInsert,
+          CKEditor5.image.ImageResize,
+          CKEditor5.image.ImageStyle,
+          CKEditor5.image.ImageToolbar,
+          CKEditor5.image.ImageUpload,
+          CKEditor5.indent.Indent,
+          CKEditor5.indent.IndentBlock,
+          CKEditor5.basicStyles.Italic,
+          CKEditor5.link.Link,
+          CKEditor5.list.List,
+          CKEditor5.list.ListProperties,
+          CKEditor5.mediaEmbed.MediaEmbed,
+          CKEditor5.mediaEmbed.MediaEmbedToolbar,
+          CKEditor5.pageBreak.PageBreak,
+          CKEditor5.paragraph.Paragraph,
+          CKEditor5.pasteFromOffice.PasteFromOffice,
+          CKEditor5.removeFormat.RemoveFormat,
+          CKEditor5.sourceEditing.SourceEditing,
+          CKEditor5.specialCharacters.SpecialCharacters,
+          CKEditor5.specialCharacters.SpecialCharactersArrows,
+          CKEditor5.specialCharacters.SpecialCharactersLatin,
+          CKEditor5.specialCharacters.SpecialCharactersMathematical,
+          CKEditor5.specialCharacters.SpecialCharactersText,
+          CKEditor5.strapiPlugins.StrapiMediaLib,
+          CKEditor5.strapiPlugins.StrapiUploadAdapter,
+          CKEditor5.basicStyles.Strikethrough,
+          CKEditor5.basicStyles.Subscript,
+          CKEditor5.basicStyles.Superscript,
+          CKEditor5.table.Table,
+          CKEditor5.table.TableCaption,
+          CKEditor5.table.TableCellProperties,
+          CKEditor5.table.TableColumnResize,
+          CKEditor5.table.TableProperties,
+          CKEditor5.table.TableToolbar,
+          CKEditor5.language.TextPartLanguage,
+          CKEditor5.list.TodoList,
+          CKEditor5.basicStyles.Underline,
+          CKEditor5.wordCount.WordCount,
+        ],
+        toolbar: [
+          'undo',
+          'redo',
+          '|',
+          'heading',
+          'bold',
+          'italic',
+          'underline',
+          {
+            label: 'Styles',
+            tooltip: 'Styles',
+            icon: `
+            <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" fill="none" width="24" height="24"/>
+            <g>
+            <path d="M14.348 12H21v2h-4.613c.24.515.368 1.094.368 1.748 0 1.317-.474 2.355-1.423 3.114-.947.76-2.266 1.138-3.956 1.138-1.557 0-2.934-.293-4.132-.878v-2.874c.985.44 1.818.75 2.5.928.682.18 1.306.27 1.872.27.68 0 1.2-.13 1.562-.39.363-.26.545-.644.545-1.158 0-.285-.08-.54-.24-.763-.16-.222-.394-.437-.704-.643-.18-.12-.483-.287-.88-.49H3v-2H14.347zm-3.528-2c-.073-.077-.143-.155-.193-.235-.126-.202-.19-.44-.19-.713 0-.44.157-.795.47-1.068.313-.273.762-.41 1.348-.41.492 0 .993.064 1.502.19.51.127 1.153.35 1.93.67l1-2.405c-.753-.327-1.473-.58-2.16-.76-.69-.18-1.414-.27-2.173-.27-1.544 0-2.753.37-3.628 1.108-.874.738-1.312 1.753-1.312 3.044 0 .302.036.58.088.848h3.318z"/>
+            </g>
+            </svg>`,
+            items: ['strikethrough', 'subscript', 'superscript'],
+          },
+          '|',
+          'alignment',
+          'outdent',
+          'indent',
+          {
+            label: 'Lists',
+            tooltip: 'Lists',
+            icon: '',
+            items: ['bulletedList', 'numberedList', 'todoList'],
+          },
+          'link',
+          '|',
+          {
+            label: 'Blocks',
+            tooltip: 'Insert a block',
+            icon: '',
+            items: ['blockQuote', 'codeBlock', 'insertTable', 'strapiMediaLib', '|', 'horizontalLine', 'pageBreak'],
+          },
+          '|',
+          'specialCharacters',
+          'SourceEditing',
+        ],
+        balloonToolbar: [
+          'bold',
+          'italic',
+          'underline',
+          'strikethrough',
+          'subscript',
+          'superscript',
+          'link',
+          '|',
+          'alignment:left',
+          'alignment:right',
+          'alignment:center',
+          'alignment:justify',
+          '|',
+          'removeFormat',
+        ],
+        heading: {
+          options: [
+            { model: 'paragraph', view: 'p', title: 'Paragraph', class: 'paragraph' },
+            { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'heading2' },
+            { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'heading3' },
+          ],
+        },
+        image: {
+          toolbar: ['toggleImageCaption', 'imageTextAlternative'],
+        },
+        table: {
+          contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells', '|', 'toggleTableCaption'],
+        },
+      },
+    },
+  },
+
+  /* Here you can customize the plugin's theme.
+    This will be passed as "createGlobalStyle". */
+  theme: {
+    // common:``,
+    // light:``,
+    dark: `
+      :root {
+      --ck-color-focus-outer-shadow: #00000000 !important;
+      --ck-color-focus-disabled-shadow: rgba(106, 106, 106, 0.4) !important;
+      --ck-focus-ring: 1px solid #f84c0b !important;
+      --ck-color-button-default-hover-background: #262630 !important;
+
+      .ck .ck-color-picker > svg {
+        color: #ffffff !important;
+      }
+      .ck .ck-color-picker-save {
+        & > svg {
+          stroke: #ffffff !important;
+        }
+
+        & > svg > #primary,
+        #primary-2 {
+          stroke: #f84c0b !important;
+        }
+      }
+    }
+
+    .ck {
+      --ck-scroll-track-background: #3d3d3d;
+      --ck-scroll-thumb-background: #181826;
+      --ck-scroll-thumb-border-color: rgb(70, 70, 70);
+      --ck-scroll-thumb-hover-background: #202020;
+      --ck-scroll-thumb-active-background: #2b2b2b;
+
+      --ck-color-editor-base-text: rgb(236, 236, 236);
+      /* Overrides the border radius setting in the theme. */
+      --ck-border-radius: 4px;
+
+      /* Helper variables to avoid duplication in the colors. */
+      --ck-color-base-border: #303030;
+      --ck-color-base-background: #000;
+      --ck-custom-background: #101010;
+      --ck-custom-foreground: #262626;
+      --ck-custom-border: #303030;
+      --ck-custom-white: hsl(0, 0%, 100%);
+
+      --ck-color-focus-outer-shadow: #212121;
+
+      --ck-color-base-focus: #bbbbbb;
+      --ck-color-base-active: #2e2e2e;
+      --ck-color-base-active-focus: #282828;
+      /* -- Overrides generic colors. ------------------------------------------------------------- */
+
+      --ck-color-base-foreground: var(--ck-custom-background);
+      --ck-color-focus-border: #676767;
+      --ck-color-text: #e6e6e6;
+      --ck-color-shadow-drop: hsla(0, 0%, 0%, 0.2);
+      --ck-color-shadow-inner: hsla(0, 0%, 0%, 0.1);
+
+      /* -- Overrides the default .ck-button class colors. ---------------------------------------- */
+
+      --ck-color-button-default-background: #000;
+
+      --ck-color-button-default-hover-background: #303030;
+      --ck-color-button-default-active-background: #404040;
+      --ck-color-button-default-active-shadow: #404040;
+      --ck-color-button-default-disabled-background: var(--ck-custom-background);
+
+      --ck-color-button-on-color: #f84c0b;
+      --ck-color-button-on-background: #000;
+      --ck-color-button-on-hover-background: #303030;
+      --ck-color-button-on-active-background: #404040;
+      --ck-color-button-on-active-shadow: #404040;
+      --ck-color-button-on-disabled-background: var(--ck-custom-foreground);
+
+      --ck-color-button-action-background: hsl(168, 0%, 42%);
+      --ck-color-button-action-hover-background: hsl(168, 0%, 38%);
+      --ck-color-button-action-active-background: hsl(168, 0%, 36%);
+      --ck-color-button-action-active-shadow: hsl(168, 0%, 34%);
+      --ck-color-button-action-disabled-background: hsl(168, 0%, 42%);
+      --ck-color-button-action-text: var(--ck-custom-white);
+
+      --ck-color-button-save: hsl(120, 100%, 46%);
+      --ck-color-button-cancel: hsl(15, 100%, 56%);
+
+      &.ck-button {
+        border: 1px solid var(--ck-color-base-border);
+      }
+
+      /* -- Overrides the default .ck-dropdown class colors. -------------------------------------- */
+
+      --ck-color-dropdown-panel-background: var(--ck-custom-background);
+      --ck-color-dropdown-panel-border: var(--ck-custom-foreground);
+
+      /* -- Overrides the default .ck-splitbutton class colors. ----------------------------------- */
+
+      --ck-color-split-button-hover-background: var(--ck-color-button-default-hover-background);
+      --ck-color-split-button-hover-border: var(--ck-custom-foreground);
+
+
+      &.ck-splitbutton > .ck-splitbutton__arrow {
+        border-top-width: 1px !important;
+        border-bottom-width: 1px !important;
+        border-left-width: 0 !important;
+      }
+
+      &.ck-splitbutton > .ck-splitbutton__action {
+        border-right-width: 0 !important;
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+      }
+
+      /* -- Overrides the default .ck-input class colors. ----------------------------------------- */
+
+      --ck-color-input-background: var(--ck-custom-background);
+      --ck-color-input-border: hsl(257, 0%, 43%);
+      --ck-color-input-text: hsl(0, 0%, 98%);
+      --ck-color-input-disabled-background: hsl(255, 0%, 21%);
+      --ck-color-input-disabled-border: hsl(250, 0%, 38%);
+      --ck-color-input-disabled-text: hsl(0, 0%, 78%);
+
+      /* -- Overrides the default .ck-labeled-field-view class colors. ---------------------------- */
+
+      --ck-color-labeled-field-label-background: var(--ck-custom-background);
+
+      /* -- Overrides the default .ck-list class colors. ------------------------------------------ */
+
+      --ck-color-list-background: var(--ck-custom-background);
+      --ck-color-list-button-hover-background: #121221;
+      --ck-color-list-button-on-background: var(--ck-color-base-active);
+      --ck-color-list-button-on-background-focus: var(--ck-color-base-active-focus);
+      --ck-color-list-button-on-text: #ffffff;
+
+      /* -- Overrides the default .ck-balloon-panel class colors. --------------------------------- */
+
+      --ck-color-panel-background: var(--ck-custom-background);
+      --ck-color-panel-border: var(--ck-custom-border);
+
+      /* -- Overrides the default .ck-toolbar class colors. --------------------------------------- */
+
+      --ck-color-toolbar-background: var(--ck-custom-background);
+      --ck-color-toolbar-border: var(--ck-custom-border);
+
+      /* -- Overrides the default .ck-tooltip class colors. --------------------------------------- */
+
+      --ck-color-tooltip-background: #3a3a3a;
+      --ck-color-tooltip-text: hsl(0, 0%, 93%);
+
+      /* -- Overrides the default colors used by the ckeditor5-image package. --------------------- */
+
+      --ck-color-image-caption-background: hsl(0, 0%, 97%);
+      --ck-color-image-caption-text: hsl(0, 0%, 20%);
+
+      /* -- Overrides the default colors used by the ckeditor5-widget package. -------------------- */
+
+      --ck-color-widget-blurred-border: #7c7c7c;
+      --ck-color-widget-hover-border: #666666;
+      --ck-color-widget-editable-focus-background: var(--ck-custom-white);
+
+      /* -- Overrides the default colors used by the ckeditor5-link package. ---------------------- */
+
+      --ck-color-link-default: #f84c0b;
+
+      .ck-editor__main a {
+        color: var(--ck-color-link-default);
+      }
+
+      .ck-content pre {
+        background: var(--default-background);
+        color: var(--ck-color-editor-base-text);
+      }
+
+      .ck-content pre code {
+        font-family: monospace;
+      }
+    }
+    `,
+    additional: ``,
+  },
+};
