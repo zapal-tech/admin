@@ -81,6 +81,7 @@ ssl
 .idea
 nbproject
 public/uploads/*
+!public/uploads/fonts/
 !public/uploads/.gitkeep
 
 ############################

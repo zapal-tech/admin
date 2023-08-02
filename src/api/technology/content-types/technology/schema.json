@@ -46,6 +46,7 @@
         }
       },
       "type": "text",
+      "maxLength": 350,
       "required": true
     },
     "icon": {

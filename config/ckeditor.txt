@@ -147,7 +147,7 @@ globalThis.CKEditorConfig = {
           CKEditor5.fontWithPicker.FontBackgroundColor,
           CKEditor5.fontWithPicker.FontColor,
           CKEditor5.heading.Heading,
-          CKEditor5.highlight.Highlight,
+          // CKEditor5.highlight.Highlight,
           CKEditor5.horizontalLine.HorizontalLine,
           CKEditor5.image.Image,
           CKEditor5.image.ImageCaption,
@@ -156,15 +156,15 @@ globalThis.CKEditorConfig = {
           CKEditor5.image.ImageStyle,
           CKEditor5.image.ImageToolbar,
           CKEditor5.image.ImageUpload,
-          CKEditor5.indent.Indent,
-          CKEditor5.indent.IndentBlock,
+          // CKEditor5.indent.Indent,
+          // CKEditor5.indent.IndentBlock,
           CKEditor5.basicStyles.Italic,
           CKEditor5.link.Link,
           CKEditor5.list.List,
           CKEditor5.list.ListProperties,
           CKEditor5.mediaEmbed.MediaEmbed,
           CKEditor5.mediaEmbed.MediaEmbedToolbar,
-          CKEditor5.pageBreak.PageBreak,
+          // CKEditor5.pageBreak.PageBreak,
           CKEditor5.paragraph.Paragraph,
           CKEditor5.pasteFromOffice.PasteFromOffice,
           CKEditor5.removeFormat.RemoveFormat,
@@ -224,7 +224,7 @@ globalThis.CKEditorConfig = {
             label: 'Blocks',
             tooltip: 'Insert a block',
             icon: '',
-            items: ['blockQuote', 'codeBlock', 'insertTable', 'strapiMediaLib', '|', 'horizontalLine', 'pageBreak'],
+            items: ['blockQuote', 'codeBlock', 'insertTable', 'strapiMediaLib', 'horizontalLine'],
           },
           '|',
           'specialCharacters',
@@ -440,6 +440,524 @@ globalThis.CKEditorConfig = {
       }
     }
     `,
-    additional: ``,
+    additional: `
+      @use "sass:list";
+
+      // We use mobile-first, so device-screen-width < 390px is default
+
+      // Phones
+      $breakpoint-phone: 390px;
+
+      // Landscape phone and tablets
+      $breakpoint-large-phone: 576px;
+
+      // Tablets
+      $breakpoint-tablet: 768px;
+
+      // Tablets
+      $breakpoint-large-tablet: 1024px;
+
+      // Laptops
+      $breakpoint-laptop: 1280px;
+
+      // Large laptops
+      $breakpoint-large-laptop: 1680px;
+
+      // Big laptops and desktops
+      $breakpoint-desktop: 1920px;
+
+      // Heading 1
+      $heading1-font-size: 3.125em;
+      $heading1-font-weight: 800;
+      $heading1-line-height: 1.2;
+
+      $heading1-font-size-laptop: 5.625em;
+
+      $heading1-font-size-large-laptop: 8.75em;
+
+      // Heading 2
+      $heading2-font-size: 1.625em;
+      $heading2-font-weight: 600;
+      $heading2-line-height: 1.225;
+
+      $heading2-font-size-laptop: 2.25em;
+      $heading2-font-weight-laptop: 800;
+
+      $heading2-font-size-large-laptop: 3.125em;
+
+      // Heading 3
+      $heading3-font-size: 1.3em;
+      $heading3-font-weight: 400;
+      $heading3-line-height: 1.2;
+
+      $heading3-font-size-laptop: 1.875em;
+      $heading3-font-weight-laptop: 500;
+
+      $heading3-font-size-large-laptop: 2.5em;
+
+      // Default
+      $default-font-size: 1em;
+      $default-font-weight: 600;
+      $default-line-height: 1.375;
+
+      $default-font-size-laptop: 1.125em;
+      $default-line-height-laptop: 1.3;
+
+      $default-font-size-large-laptop: 1.625em;
+
+      // Small
+      $small-font-size: 1em;
+      $small-font-weight: 400;
+      $small-line-height: 1.375;
+
+      $small-font-size-laptop: 1.125em;
+      $small-font-weight-laptop: 500;
+      $small-line-height-laptop: 1.3;
+
+      $small-font-size-large-laptop: 1.625em;
+
+      // Tiny
+      $tiny-font-size: 0.75em;
+      $tiny-font-weight: 400;
+      $tiny-line-height: 1.2;
+
+      $tiny-font-size-laptop: 1em;
+      $tiny-font-weight-laptop: 500;
+
+      $tiny-font-size-large-laptop: 1.125em;
+
+      @mixin media($breakpoint) {
+        $valid-breakpoint-names: phone, large-phone, tablet, large-tablet, laptop,
+          large-laptop, desktop;
+
+        @if not list.index($valid-breakpoint-names, $breakpoint) {
+          @error "#{$breakpoint} is not a valid breakpoint name. Expected one of #{$valid-breakpoint-names}.";
+        }
+
+        @if $breakpoint == phone {
+          @media only screen and (min-width: $breakpoint-phone) {
+            @content;
+          }
+        }
+
+        @if $breakpoint == large-phone {
+          @media only screen and (min-width: $breakpoint-large-phone) {
+            @content;
+          }
+        }
+
+        @if $breakpoint == tablet {
+          @media only screen and (min-width: $breakpoint-tablet) {
+            @content;
+          }
+        }
+
+        @if $breakpoint == large-tablet {
+          @media only screen and (min-width: $breakpoint-large-tablet) {
+            @content;
+          }
+        }
+
+        @if $breakpoint == laptop {
+          @media only screen and (min-width: $breakpoint-laptop) {
+            @content;
+          }
+        }
+
+        @if $breakpoint == large-laptop {
+          @media only screen and (min-width: $breakpoint-large-laptop) {
+            @content;
+          }
+        }
+
+        @if $breakpoint == desktop {
+          @media only screen and (min-width: $breakpoint-desktop) {
+            @content;
+          }
+        }
+      }
+
+
+      @mixin text-heading1 {
+        font-size: $heading1-font-size;
+        font-weight: $heading1-font-weight;
+        line-height: $heading1-line-height;
+      }
+
+      @mixin text-heading2 {
+        font-size: $heading2-font-size;
+        font-weight: $heading2-font-weight;
+        line-height: $heading2-line-height;
+      }
+
+      @mixin text-heading3 {
+        font-size: $heading3-font-size;
+        font-weight: $heading3-font-weight;
+        line-height: $heading3-line-height;
+      }
+
+      @mixin text-default {
+        font-size: $default-font-size;
+        font-weight: $default-font-weight;
+        line-height: $default-line-height;
+      }
+
+      @mixin text-small {
+        font-size: $small-font-size;
+        font-weight: $small-font-weight;
+        line-height: $small-line-height;
+      }
+
+      @mixin text-tiny {
+        font-size: $tiny-font-size;
+        font-weight: $tiny-font-weight;
+        line-height: $tiny-line-height;
+      }
+
+      .ck-editor .ck.ck-editor__main > .ck.ck-content {
+        @font-face {
+          font-family: 'Ronald';
+          src: url('/uploads/fonts/Ronald/Ronald-Regular.woff2') format('woff2');
+          font-weight: 400;
+          font-style: normal;
+        }
+
+        @font-face {
+          font-family: 'Ronald';
+          src: url('/uploads/fonts/Ronald/Ronald-Medium.woff2') format('woff2');
+          font-weight: 500;
+          font-style: normal;
+        }
+
+        @font-face {
+          font-family: 'Ronald';
+          src: url('/uploads/fonts/Ronald/Ronald-SemiBold.woff2') format('woff2');
+          font-weight: 600;
+          font-style: normal;
+        }
+
+        @font-face {
+          font-family: 'Ronald';
+          src: url('/uploads/fonts/Ronald/Ronald-ExtraBold.woff2') format('woff2');
+          font-weight: 800;
+          font-style: normal;
+        }
+
+        font-family: Ronald, Tahoma, Geneva, Verdana, Arial, sans-serif;
+        font-size: 16px;
+
+        h2 {
+          @include text-heading2;
+
+          margin: 40px 0 30px;
+        }
+
+        h3 {
+          @include text-heading3;
+
+          margin: 30px 0 20px;
+        }
+
+        p {
+          @include text-default;
+
+          font-weight: 500;
+          margin-bottom: 15px;
+          padding-top: 0;
+        }
+
+        * p {
+          margin-bottom: 0;
+          padding-top: 0;
+        }
+
+        em,
+        i {
+          font-style: italic;
+        }
+
+        strong {
+          font-weight: bold;
+        }
+
+        u {
+          text-decoration: underline;
+        }
+
+        s {
+          text-decoration: line-through;
+        }
+
+        a {
+          color: #f84c0b;
+        }
+
+        hr {
+          height: 1px;
+          border: none;
+          background: #fff;
+          margin: 80px 0 30px;
+        }
+
+        ul,
+        ol {
+          list-style-type: inherit;
+          list-style-position: outside;
+          padding: 0;
+          margin: 0;
+          padding-left: 30px;
+          margin-bottom: 20px;          
+        }
+
+        .todo-list {
+          list-style-type: none;
+          padding-left: 0;
+        }
+
+        .todo-list > li {
+          display: grid;
+          grid-template-columns: 30px 1fr;
+          align-items: center;
+        }
+
+        .todo-list > li > .todo-list__label > input[type="checkbox"] {
+          position: relative;
+          display: inline-block;
+          left: 0;
+          height: 1em;
+          width: 1em;
+          aspect-ratio: 1;
+          border-radius: 4px;
+          border: 1px solid #f84c0b;
+        }
+
+        .todo-list > li > .todo-list__label > input[type="checkbox"]::after {
+          content: none;
+        }
+
+        .todo-list > li > .todo-list__label > input[checked] {
+          background: #f84c0b;
+        }
+
+        .todo-list > li > .todo-list__label > input[checked]::before {
+          content: "✔";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-35%, -35%);
+          font-size: 0.7em;
+          line-height: 1;
+          color: #fff;
+          border: 0;
+          background: transparent;
+        }
+
+        li {
+          @include text-default;
+
+          display: list-item;
+          line-height: 1.375 !important;
+
+          p {
+            line-height: inherit;
+          }
+
+          &::marker {
+            content: unset;
+            font: inherit;
+          }
+        }
+
+        blockquote {
+          position: relative;
+          padding-left: 30px;
+          font-style: italic;
+          margin-bottom: 15px;
+          border: 0;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 4px;
+            background: #fff;
+            border-radius: 10px;
+          }
+
+          p:first-child {
+            padding-top: 0;
+
+            &::before {
+              content: '"';
+              color: #fff;
+            }
+
+            &::after {
+              content: '"';
+              color: #fff;
+            }
+          }
+
+          p:last-child:not(:only-child) {
+            font-style: normal;
+            margin-top: 15px;
+
+            &::before {
+              content: "— ";
+            }
+          }
+        }
+
+        figure.table > figcaption,
+        .image > figcaption {
+          @include text-small;
+
+          text-align: center !important;
+          background: #000 !important;
+          color: #fff !important;
+        }
+
+        figure.image,
+        figure.table {
+          width: 100% !important;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 20px;
+
+          & > img,
+          & > table {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 10px;
+          }
+        }
+
+        figure.image > img {
+          display: block;
+          object-fit: contain;
+        }
+
+        figure.table {
+          overflow: hidden;
+        }
+
+        figure.table > table {
+          border-collapse: separate !important;
+          border: 1px solid #fff;
+          border-radius: 10px;
+          border-spacing: 0;
+          display: block;
+          overflow-x: auto;
+          white-space: nowrap;
+
+          @include media(laptop) {
+            &::-webkit-scrollbar {
+              height: 2px;
+            }
+
+            &::-webkit-scrollbar-track {
+              background: transparent;
+            }
+
+            &::-webkit-scrollbar-thumb {
+              background-clip: content-box;
+              background: linear-gradient(
+                to right,
+                transparent 5%,
+                #f84c0b 5%,
+                #f84c0b 95%,
+                transparent 95%
+              );
+
+              &:hover {
+                background: #d10000;
+              }
+            }
+          }
+        }
+
+        figure.table table tbody {
+          display: table;
+          width: 100%;
+        }
+
+        figure.table table td {
+          @include text-small;
+
+          border: 0.5px solid #fff;
+          padding: 10px;
+          line-height: 1.125 !important;
+        }
+
+        figure.table table tr td:first-child {
+          border-left: 0;
+        }
+
+        figure.table table tr td:last-child {
+          border-right: 0;
+        }
+
+        figure.table table tr:last-child td {
+          border-bottom: 0;
+        }
+
+        figure.table table tr:first-child td {
+          border-top: 0;
+        }
+
+        pre {
+          display: block;
+          max-width: 100%;
+          padding: 1.2em;
+          border: 1px solid #fff;
+          overflow-x: auto;
+          border-radius: 10px;
+          margin-bottom: 15px;
+
+          @include media(laptop) {
+            &::-webkit-scrollbar {
+              height: 2px;
+            }
+
+            &::-webkit-scrollbar-track {
+              background: transparent;
+            }
+
+            &::-webkit-scrollbar-thumb {
+              background-clip: content-box;
+              background: linear-gradient(
+                to right,
+                transparent 5%,
+                #f84c0b 5%,
+                #f84c0b 95%,
+                transparent 95%
+              );
+              border-radius: 100px;
+
+              &:hover {
+                background: #d10000;
+              }
+            }
+          }
+        }
+
+        code {
+          @include text-small;
+
+          white-space: pre;
+          font-weight: 600 !important;
+
+          @include media(laptop) {
+            @include text-tiny;
+          }
+        }
+      }
+    `,
   },
 };

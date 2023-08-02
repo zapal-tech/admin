@@ -23,6 +23,7 @@ services:
       - ./package-lock.json:/opt/package-lock.json
 
       - ./.env:/opt/app/.env
+      - ./public/fonts:/opt/app/public/fonts
       - ./public/uploads:/opt/app/public/uploads
     ports:
       - '1337:1337'
